@@ -1,0 +1,30 @@
+@model Desafio_MVC.DTO.FuncionarioDTO
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Editar Funcionario</h3>
+<hr>
+<form class="form-horizontal" asp-controller="Funcionarios" asp-action="Atualizar" method="POST">
+<input type="hidden" asp-for="Id">
+
+<label asp-for="Nome">Nome</label>
+<input type="text" asp-for="Nome" class="form-control" placeholder="Nome do funcionario"><br>
+<span asp-validation-for="Nome"></span>
+
+<label asp-for="Cargo">Cargo</label>
+<input type="text" asp-for="Cargo" class="form-control" placeholder="Cargo do funcionario"><br>
+<span asp-validation-for="Cargo"></span>
+
+<label asp-for="Matricula">Matricula</label>
+<input type="text" asp-for="Matricula" class="form-control" placeholder="Matricula do funcionario"><br>
+<span asp-validation-for="Matricula"></span>
+
+<label asp-for="Inicio_Wa">Inicio do WA</label>
+<input type="datetime" asp-for="Inicio_Wa" class="form-control" placeholder="Data de Inicio"><br>
+<span asp-validation-for="Inicio_Wa"></span>
+
+<label asp-for="Gft_Id">GFT</label>
+<select class="form-control" asp-for="Gft_Id" asp-items='@(new SelectList(@ViewBag.Gfts,"Id","Nome"))'></select><br>
+
+<button class="btn btn-success">Atualizar</button>
+</form>

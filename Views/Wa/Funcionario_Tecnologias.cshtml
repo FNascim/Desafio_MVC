@@ -1,0 +1,18 @@
+@model Desafio_MVC.DTO.Funcionario_TecnologiaDTO
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Tecnologia Utilizada</h3>
+<hr>
+<form class="form-horizontal" asp-controller="Funcionario_Tecnologias" asp-action="Salvar" method="POST">
+<input type="hidden" asp-for="Funcionario_Id">
+
+<label asp-for="Funcionario.Nome">Funcionario</label>
+<input type="text" asp-for="Funcionario.Nome" class="form-control" placeholder="Nome do funcionario"><br>
+<span asp-validation-for="Funcionario.Nome"></span>
+
+
+<label asp-for="Tecnologia_Id">Tecnologia</label>
+<select class="form-control" asp-for="Tecnologia_Id" asp-items='@(new SelectList(@ViewBag.Tecnologias,"Id","Nome"))'></select><br>
+<button class="btn btn-success">Cadastrar</button>
+</form>

@@ -1,0 +1,25 @@
+@model Desafio_MVC.DTO.VagaDTO
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Editar Vaga</h3>
+<hr>
+<form class="form-horizontal" asp-controller="Vagas" asp-action="Atualizar" method="POST">
+<input type="hidden" asp-for="Id">
+<label asp-for="Abertura_Vaga">Data de Abertura</label>
+<input type="datetime" asp-for="Abertura_Vaga" class="form-control" placeholder="Data de abertura da vaga"><br>
+<span asp-validation-for="Abertura_Vaga"></span>
+<label asp-for="Codigo_Vaga">Código da vaga</label>
+<input type="text" asp-for="Codigo_Vaga" class="form-control" placeholder="Codigo da vaga"><br>
+<span asp-validation-for="Codigo_Vaga"></span>
+<label asp-for="Descricao_Vaga">Descrição da vaga</label>
+<input type="text" asp-for="Descricao_Vaga" class="form-control" placeholder="Descrição da vaga"><br>
+<span asp-validation-for="Descricao_Vaga"></span>
+<label asp-for="Projeto">Projeto</label>
+<input type="text" asp-for="Projeto" class="form-control" placeholder="Projeto"><br>
+<span asp-validation-for="Projeto"></span>
+<label asp-for="Qtd_Vaga">Quantidade de vagas</label>
+<input type="number" asp-for="Qtd_Vaga" class="form-control" placeholder="Quantidade de vagas"><br>
+<span asp-validation-for="Qtd_Vaga"></span>
+<button class="btn btn-success">Atualizar</button>
+</form>

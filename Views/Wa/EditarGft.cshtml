@@ -1,0 +1,28 @@
+@model Desafio_MVC.DTO.GftDTO
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Editar Filial</h3>
+<hr>
+<form class="form-horizontal" asp-controller="Gfts" asp-action="Atualizar" method="POST">
+<input type="hidden" asp-for="Id">
+<label asp-for="Nome">Nome</label>
+<input type="text" asp-for="Nome" class="form-control" placeholder="Nome da Filial"><br>
+<span asp-validation-for="Nome"></span>
+<label asp-for="Cep">CEP</label>
+<input type="number" asp-for="Cep" class="form-control" placeholder="CEP"><br>
+<span asp-validation-for="Cep"></span>
+<label asp-for="Cidade">Cidade</label>
+<input type="text" asp-for="Cidade" class="form-control" placeholder="Cidade"><br>
+<span asp-validation-for="Cidade"></span>
+<label asp-for="Endereco">Endereço</label>
+<input type="text" asp-for="Endereco" class="form-control" placeholder="Endereço"><br>
+<span asp-validation-for="Endereco"></span>
+<label asp-for="Estado">Estado</label>
+<input type="text" asp-for="Estado" class="form-control" placeholder="Estado"><br>
+<span asp-validation-for="Estado"></span>
+<label asp-for="Telefone">Telefone</label>
+<input type="number" asp-for="Telefone" class="form-control" placeholder="Telefone"><br>
+<span asp-validation-for="Telefone"></span>
+<button class="btn btn-success">Atualizar</button>
+</form>

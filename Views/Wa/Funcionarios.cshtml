@@ -1,0 +1,65 @@
+@model IEnumerable<Desafio_MVC.Models.Funcionario>
+@{
+    Layout = "_LayoutAdmin";
+}
+<h2>Funcionarios</h2>
+<hr/>
+<a asp-action="NovoFuncionario" asp-controller="Wa" class="btn btn-success">Cadastrar novo funcionario</a>
+<hr/>
+
+<script>
+    $(document).ready( function () {
+    $('#funcionarios').DataTable({
+        "language" : {
+            "lengthMenu" : "Mostrar _MENU_ registros por página",
+            "zeroRecords" : "Nenhum registro encontrado",
+            "info" : "Mostrando página _PAGE_ de _PAGE_",
+            "infoEmpty" : "Nenhum registro disponivel",
+            "search" : "Buscar",
+            "paginate" : {
+                "first" : "Primeiro",
+                "last" : "Último",
+                "next" : "Próximo",
+                "previous" : "Anterior"
+            }
+        }
+    });
+} );
+</script>
+
+<table id="funcionarios" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Matricula</th>
+            <th>Cargo</th>
+            @* <th>GFT</th> *@
+            <th>Inicio WA</th>
+            <th>Termino Previsto do WA</th>
+            
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var funcionario in Model)
+        {
+            <tr>
+                <td>@funcionario.Id</td>
+                <td>@funcionario.Nome</td>
+                <td>@funcionario.Matricula</td>
+                <td>@funcionario.Cargo</td>
+                @* <td>@funcionario.Gft.Nome</td> *@
+                <td>@funcionario.Inicio_Wa</td>
+                <td>@funcionario.Termino_Wa</td>
+                
+                <td><a class="btn btn-primary" href="/Wa/EditarFuncionario/@funcionario.Id">Editar</a>
+                <form asp-action="Deletar" asp-controller="Funcionarios" style="display: inline;">
+                    <input type="hidden" name="id" id="id" value="@funcionario.Id">
+                    <button class="btn btn-danger">Deletar</button>
+                </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
